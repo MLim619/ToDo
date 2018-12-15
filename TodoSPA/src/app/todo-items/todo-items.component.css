@@ -1,0 +1,12 @@
+.container{
+    width: 500px;
+}
+.hover-cursor{
+    cursor: pointer;
+}
+.form-control {
+    box-shadow: none !important;
+}
+form{
+    margin: 50px 0px 10px 0px;
+}

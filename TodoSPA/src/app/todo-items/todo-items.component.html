@@ -1,0 +1,39 @@
+<div class="container">
+  <form 
+    #f="ngForm" 
+    (ngSubmit)="createTodo(f)">
+    <div class="input-group">
+      <input 
+        required
+        ngModel 
+        name="name" type="text" type="text" class="form-control">
+      <div class="input-group-append hover-cursor">
+        <span 
+          class="input-group-text"
+          (click)="createTodo(f)">
+          <i class="fa fa-plus-circle fa-lg"></i>
+        </span>
+      </div>
+    </div>
+  </form>
+  <p *ngIf="todoItems && todoItems.length === 0">There's nothing to do</p>
+  <ul class="list-group">
+    <li
+      *ngFor="let todoItem of todoItems"
+      class="list-group-item">
+      <span 
+        class="pull-left hover-cursor"
+        (click)="toggleComplete(todoItem)">
+        <i 
+          class="fa fa-lg"
+          [ngClass]="todoItem.isComplete?'fa-check-circle-o':'fa-circle-thin'"></i>
+        {{ todoItem.name}}
+      </span>
+      <span 
+        class="fover-cursor text-danger pull-right hover-cursor"
+        (click)="deleteTodo(todoItem)">
+        <i class="fa fa-trash-o fa-lg"></i>
+      </span>
+    </li>
+  </ul>
+</div>
